@@ -4,9 +4,8 @@ class Car(object):
         self.name=name
         self.model=model
         self.car_type=car_type
-        num_of_wheels=4
-        is_saloon=True
-
+        self.speed=0
+        
 
         #number of doors
         if (name=='Koenigsegg' and model=='Agera R') or (name=='porshe' and model=='911 Turbo'):
