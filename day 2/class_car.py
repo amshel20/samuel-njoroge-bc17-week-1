@@ -1,33 +1,41 @@
 #create a class Car that can be used to instatiate various objects
 class Car(object):
-    def __init__( self, name='General', model='GM',  Car_type='saloon'):
+    def __init__( self, name='General', model='GM', car_type='saloon' ):
         self.name=name
         self.model=model
-        num_of_doors=4
+        self.car_type=car_type
         num_of_wheels=4
-        speed=0
+        is_saloon=True
 
 
         #number of doors
-        if (Car.name=='koenisseg' and Car.model=='Agera R') or (Car.name=='porshe' and Car.model=='911 turbo'):
+        if (name=='Koenigsegg' and model=='Agera R') or (name=='porshe' and model=='911 Turbo'):
             self.num_of_doors=2
+            num_of_wheels==4
         else:
             self.num_of_doors=4
 
-        #number of wheels
-        if Car_type!='saloon':
-            self.num_of_wheels=8
-        else:
-            self.num_of_wheels=4
+        # Number of Wheels
+            if (self.car_type == 'trailer'):
+                self.num_of_wheels = 8
+            else:
+                self.num_of_wheels = 4
 
-        #Car speed
-        def drive(N):
-            if Car.drive(0) and Car_type=='trailer':
-                Car.speed=0
-            elif Car.drive(7) and Car_type=='trailer':
-                Car.speed=77
+        # is_saloon Car
+        def is_saloon(self):
+            if self.car_type == 'saloon':
+                return True
+            else:
+                return False
 
-            if Car.name=='Mercedes' and Car.drive(0):
-                Car.speed=0
-            elif Car.name=='Mercedes' and Car.drive(3):
-                Car.speed=1000
+        # Car Speed
+        def drive(self, accelerate):
+            if (self.car_type == 'trailer'):
+                self.speed = accelerate * 11
+                return self
+            else:
+                if(accelerate !=0):
+                    self.speed = 10 ** accelerate
+                else:
+                    self.speed = 10 * accelerate
+                return self
